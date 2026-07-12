@@ -12,6 +12,32 @@ const CATEGORIES = [
   { value: 'tool', label: 'Tool' },
 ]
 
+function ProductImage({ src, alt }) {
+  const [failed, setFailed] = useState(false)
+
+  if (!src || failed) {
+    return (
+      <div className="aspect-square mb-4 flex items-center justify-center border border-dashed border-ink/15 rounded-sm">
+        <svg viewBox="0 0 24 24" className="w-8 h-8 text-moss/60" fill="none" stroke="currentColor" strokeWidth="1.4">
+          <path d="M4 8L12 4l8 4v8l-8 4-8-4V8z" />
+          <path d="M4 8l8 4 8-4M12 12v8" />
+        </svg>
+      </div>
+    )
+  }
+
+  return (
+    <div className="aspect-square mb-4 rounded-sm overflow-hidden border border-ink/10 bg-paper">
+      <img
+        src={src}
+        alt={alt}
+        className="w-full h-full object-cover"
+        onError={() => setFailed(true)}
+      />
+    </div>
+  )
+}
+
 export default function Shop() {
   const navigate = useNavigate()
   const [products, setProducts] = useState([])
@@ -122,12 +148,7 @@ export default function Shop() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {filtered.map((p) => (
             <div key={p.id} className="border border-ink/10 rounded-card bg-white/60 p-5 flex flex-col">
-              <div className="flex items-center justify-center h-24 mb-4 border border-dashed border-ink/15 rounded-sm">
-                <svg viewBox="0 0 24 24" className="w-7 h-7 text-moss/60" fill="none" stroke="currentColor" strokeWidth="1.4">
-                  <path d="M4 8L12 4l8 4v8l-8 4-8-4V8z" />
-                  <path d="M4 8l8 4 8-4M12 12v8" />
-                </svg>
-              </div>
+              <ProductImage src={p.image_url} alt={p.name} />
               <p className="font-mono text-[10px] tracking-[0.08em] text-ink/40 mb-1 uppercase">{p.category.replace('-', ' ')}</p>
               <h3 className="font-display text-lg text-ink mb-1">{p.name}</h3>
               <p className="text-xs text-ink/55 leading-relaxed mb-4 flex-1">{p.description}</p>
