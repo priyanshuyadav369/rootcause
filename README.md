@@ -1,75 +1,259 @@
-# RootCause 🌿
+# 🌿 RootCause
 
 > This assignment prompt was shared by **Prathamesh Sir**.
 
-A diagnostic record for terrace and balcony gardeners. Photograph a leaf or root, get an AI-generated diagnosis, and know exactly what mineral, compost, or pesticide fixes it — with a shop right there to buy it.
+RootCause is an AI-powered web application designed for terrace and balcony gardeners. Users can upload an image of a plant's leaf or root to receive an AI-generated diagnosis, treatment recommendations, and purchase suitable products directly through an integrated shop.
 
 ---
 
-## Project overview
+# 🚀 Live Demo
 
-Most first-time terrace/balcony gardeners have no one to ask when a plant starts struggling. RootCause solves that by turning a phone photo into a plain-language diagnosis and a specific, actionable fix — then keeps a running record for every plant so you can see it improve over time.
+**Live Website:** https://rootcause-369.vercel.app
 
-**Core features**
+**GitHub Repository:** https://github.com/priyanshuyadav369/rootcause
 
-- Supabase email/password authentication with protected routes
-- **My Plants** — full CRUD for plant records (name, species, location, status)
-- **Scan** — upload a leaf/root photo → Groq Vision detects symptoms → Groq (text) turns that into a diagnosis + treatment recommendation
-- **Shop** — product catalog tagged by the deficiencies/pests they treat, cart, and order history (second CRUD flow)
-- **Analytics dashboard** — Recharts visualizations of scans, issue types, and plant health over time
-- **Ask AI** — chat interface grounded in the user's own plant/scan history
-- **Reports** — weekly email digest (via Resend) of everything done that week, plus a manual "send now" button
+---
 
-## Tech stack
+# 📖 Project Overview
 
-| Layer | Tech |
-|---|---|
-| Frontend | React + Vite, React Router, Tailwind CSS, shadcn/ui-style components |
-| Auth / Database / Storage | Supabase |
-| Image diagnosis | Groq Vision |
-| Text generation | Groq |
-| Email | Resend |
+Maintaining healthy plants can be difficult for beginners, especially when diseases or nutrient deficiencies appear. RootCause simplifies plant care by using AI to analyze plant images, identify potential issues, recommend treatments, and maintain a complete health record for every plant.
+
+The application combines modern AI services with a complete plant management system, analytics dashboard, and online shopping experience to provide an all-in-one solution for gardeners.
+
+---
+
+# ✅ Mandatory Requirements Implemented
+
+- ✔ Supabase Authentication
+- ✔ Protected Routes
+- ✔ CRUD Operations (My Plants)
+- ✔ CRUD Operations (Orders)
+- ✔ Analytics Dashboard using Recharts
+- ✔ Landing Page with Responsive UI
+- ✔ Supabase Database Integration
+- ✔ Groq AI Chat Assistant
+- ✔ Groq Vision Image Diagnosis
+- ✔ Resend Email Integration
+- ✔ GitHub Repository
+- ✔ Vercel Deployment
+
+---
+
+# ✨ Features
+
+- Secure Email/Password Authentication using Supabase
+- Protected Routes for authenticated users
+- Manage Plant Records (Create, Read, Update, Delete)
+- AI-powered Plant Disease Detection
+- Plant Diagnosis using Groq Vision
+- AI Chat Assistant for Gardening Questions
+- Integrated Shop with Cart and Orders
+- Analytics Dashboard with Interactive Charts
+- Weekly Email Reports using Resend
+- Fully Responsive User Interface
+
+---
+
+# 🛠 Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| Frontend | React + Vite |
+| Routing | React Router |
+| Styling | Tailwind CSS |
+| Authentication | Supabase Auth |
+| Database | Supabase |
+| Storage | Supabase Storage |
+| AI Vision | Groq Vision |
+| AI Chat | Groq LLM |
 | Charts | Recharts |
-| Hosting | Vercel |
+| Email | Resend |
+| Deployment | Vercel |
 
-## Getting started locally
+---
+
+# 📷 Project Screenshots
+
+| Page | Screenshot |
+|------|------------|
+| Landing Page | ![](./screenshots/landing.png) |
+| Login | ![](./screenshots/login.png) |
+| Sign Up | ![](./screenshots/signup.png) |
+| Dashboard | ![](./screenshots/dashboard.png) |
+| My Plants | ![](./screenshots/plants.png) |
+| Scan & Diagnosis | ![](./screenshots/scan.png) |
+| Shop | ![](./screenshots/shop.png) |
+| Orders | ![](./screenshots/orders.png) |
+| Analytics Dashboard | ![](./screenshots/analytics.png) |
+| Ask AI | ![](./screenshots/ask-ai.png) |
+| Reports | ![](./screenshots/reports.png) |
+
+---
+
+# 📂 Project Structure
+
+```
+rootcause
+│
+├── api
+├── public
+├── screenshots
+├── src
+│   ├── assets
+│   ├── components
+│   ├── contexts
+│   ├── hooks
+│   ├── layouts
+│   ├── lib
+│   ├── pages
+│   ├── routes
+│   └── utils
+│
+├── supabase
+├── .env.example
+├── package.json
+├── vite.config.js
+└── README.md
+```
+
+---
+
+# ⚙️ Getting Started
+
+Clone the repository
 
 ```bash
-git clone <this-repo-url>
+git clone https://github.com/priyanshuyadav369/rootcause.git
+```
+
+Navigate to the project
+
+```bash
 cd rootcause
+```
+
+Install dependencies
+
+```bash
 npm install
+```
+
+Create the environment file
+
+```bash
 cp .env.example .env
 ```
 
-Fill in `.env` with your **own new Supabase project's** URL and anon key (do not reuse a Micro/Minor project). Then in the Supabase SQL editor, run the contents of `supabase/schema.sql` to create all tables, policies, and seed shop products.
+Fill in the required environment variables:
 
-While developing, disable **Confirm Email** under **Authentication → Providers** in Supabase for faster sign-up testing.
+```
+VITE_SUPABASE_URL
+VITE_SUPABASE_ANON_KEY
+VITE_GROQ_API_KEY
+RESEND_API_KEY
+SUPABASE_SERVICE_ROLE_KEY
+```
+
+Run the development server
 
 ```bash
 npm run dev
 ```
 
-## Deployment
+---
 
-- Push this repo to GitHub
-- Import it into Vercel
-- Add the environment variables from `.env.example` in the Vercel project settings (the non-`VITE_` ones are used by the serverless functions in `/api`)
-- Deploy
+# 🚀 Deployment
 
-## Screenshots
+The project is deployed on **Vercel**.
 
-_Add screenshots here once each page is built:_
+Deployment Steps:
 
-- [ ] Landing page
-- [ ] Sign up / Log in
-- [ ] Dashboard
-- [ ] My Plants (CRUD)
-- [ ] Scan → Diagnosis result
-- [ ] Shop / Cart / Orders
-- [ ] Analytics dashboard
-- [ ] Ask AI
-- [ ] Reports
+1. Push the repository to GitHub.
+2. Import the repository into Vercel.
+3. Configure all environment variables from `.env.example`.
+4. Deploy the project.
 
-## Project status
+Live URL:
 
-This is a work in progress, built incrementally. Current state: project scaffold, design system, landing page, routing (public + protected), and the full Supabase schema are in place. Auth wiring, CRUD screens, the Groq scan pipeline, the shop/cart/order flow, analytics, and the Resend reports are being built next.
+**https://rootcause-369.vercel.app**
+
+---
+
+# 📊 Analytics
+
+The Analytics Dashboard provides graphical insights using **Recharts**, including:
+
+- Plant Health Distribution
+- Scan History
+- Disease Frequency
+- Plant Status Overview
+- User Activity
+
+---
+
+# 🤖 AI Services
+
+### Groq Vision
+
+- Image-based disease detection
+- Leaf and root analysis
+- Treatment recommendations
+
+### Groq AI
+
+- Gardening assistant
+- Plant care suggestions
+- Context-aware responses
+
+---
+
+# 📧 Email Reports
+
+Using **Resend**, users can:
+
+- Send reports manually
+- Receive weekly summaries
+- Review scan and plant activity
+
+---
+
+# 📌 Project Status
+
+✅ **Completed**
+
+All mandatory project requirements have been successfully implemented.
+
+The application includes:
+
+- Supabase Authentication
+- Protected Routes
+- Multiple CRUD Modules
+- Analytics Dashboard
+- Groq AI
+- Groq Vision
+- Resend Integration
+- Responsive Landing Page
+- GitHub Repository
+- Live Deployment on Vercel
+
+---
+
+# 👨‍💻 Author
+
+**Priyanshu Yadav**
+
+GitHub: https://github.com/priyanshuyadav369
+
+---
+
+# 🙏 Acknowledgement
+
+This project was developed as part of the **Major Project / Product Development Assignment**.
+
+The assignment prompt was shared by **Prathamesh Sir**.
+
+---
+
+# 📄 License
+
+This project is intended for educational purposes.
